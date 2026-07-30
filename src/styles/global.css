@@ -169,6 +169,7 @@ p {
 .reveal-delay-1.in-view { transition-delay: 0.1s; }
 .reveal-delay-2.in-view { transition-delay: 0.2s; }
 .reveal-delay-3.in-view { transition-delay: 0.32s; }
+.reveal-delay-4.in-view { transition-delay: 0.44s; }
 
 /* Image variant — gentle scale-settle instead of slide */
 .reveal-img {

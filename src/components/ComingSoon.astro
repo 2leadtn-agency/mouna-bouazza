@@ -1,0 +1,58 @@
+---
+interface Props {
+  lang: "fr" | "ar";
+  eyebrow: string;
+}
+const { lang, eyebrow } = Astro.props;
+const isAr = lang === "ar";
+const homeHref = isAr ? "/ar/" : "/";
+---
+
+<section class="coming-soon">
+  <div class="container coming-soon-inner">
+    <p class="eyebrow reveal">{eyebrow}</p>
+    <h1 class="reveal reveal-delay-1">{isAr ? "المحتوى قادم قريبًا" : "Cette page prend forme…"}</h1>
+    <p class="coming-soon-text reveal reveal-delay-2">
+      {isAr
+        ? "نُحضّر هذا المحتوى بنفس العناية التي نقدّمها في جلساتنا. عودي قريبًا لاكتشافه."
+        : "Nous préparons ce contenu avec le même soin que nos séances. Revenez très bientôt pour le découvrir."}
+    </p>
+    <a href={homeHref} class="btn btn-primary reveal reveal-delay-3">
+      {isAr ? "العودة إلى الرئيسية" : "Retour à l'accueil"}
+    </a>
+  </div>
+</section>
+
+<style>
+  .coming-soon {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    padding-top: 6rem;
+  }
+  .coming-soon-inner {
+    max-width: 46ch;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  .coming-soon-inner h1 {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+    line-height: 1.25;
+    color: var(--espresso);
+  }
+  :global(html[dir="rtl"]) .coming-soon-inner h1 {
+    font-family: "Amiri", serif;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .coming-soon-text {
+    color: var(--espresso-soft);
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+  .coming-soon-inner .btn { align-self: flex-start; margin-top: 0.6rem; }
+</style>

@@ -1,5 +1,10 @@
 ---
 import "../styles/global.css";
+import SiteFonts from "../components/SiteFonts.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import ChatWidget from "../components/ChatWidget.astro";
+import SiteScripts from "../components/SiteScripts.astro";
 
 const icon = (name: string) => {
   const icons: Record<string, string> = {
@@ -8,18 +13,13 @@ const icon = (name: string) => {
     lock: '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
     "heart-handshake": '<path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"/>',
     phone: '<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>',
-    mail: '<path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/>',
     "map-pin": '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
     clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
     "message-circle": '<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>',
-    menu: '<path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/>',
-    x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
     "arrow-down": '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>',
-    "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
     droplets: '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
     waves: '<path d="M2 12q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0"/>',
     flame: '<path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/>',
-    languages: '<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>',
     quote: '<path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>',
   };
   return icons[name] ?? "";
@@ -32,35 +32,11 @@ const icon = (name: string) => {
   <meta name="description" content="Mouna Bouazza — Thérapeute spécialiste en médecine complémentaire. Madero-thérapie, massages, drainage lymphatique et hijama, dans un cabinet privé pensé pour les femmes." />
   <title>Mouna Bouazza — Thérapeute, médecine complémentaire</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23bd6c44'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%23fbf8f2' font-family='Georgia,serif' font-style='italic'%3EM%3C/text%3E%3C/svg%3E" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" />
+  <SiteFonts lang="fr" />
 </head>
 <body>
 
-  <!-- ============ NAV ============ -->
-  <header class="site-nav" id="siteNav">
-    <div class="container nav-inner">
-      <a href="#top" class="wordmark">Mouna Bouazza</a>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#espace">L'espace</a>
-        <a href="#soins">Les soins</a>
-        <a href="#experience">L'expérience</a>
-        <a href="#contact">Contact</a>
-        <a href="/ar/" class="lang-switch" hreflang="ar" lang="ar">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("languages")} />
-          العربية
-        </a>
-        <a href="#contact" class="nav-cta">Prendre rendez-vous</a>
-      </nav>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
-        <svg class="icon" id="navToggleIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("menu")} />
-      </button>
-    </div>
-  </header>
+  <SiteNav lang="fr" />
 
   <main id="top">
 
@@ -88,9 +64,8 @@ const icon = (name: string) => {
       </div>
     </section>
 
-    <!-- ============ SIGNATURE FULL-BLEED MOMENT ============ -->
+    <!-- ============ SIGNATURE FULL-BLEED PARALLAX MOMENT ============ -->
     <section class="signature">
-      <img src="/images/salle-de-soin-ambiance-cocon.jpg" alt="Salle de soin chaleureuse et feutrée, table de massage et lumière douce" class="signature-img" />
       <div class="signature-overlay"></div>
       <p class="signature-quote reveal">
         Ici, le temps ralentit.<br />
@@ -190,36 +165,36 @@ const icon = (name: string) => {
       <p class="eyebrow reveal">L'expérience</p>
       <h2 class="reveal reveal-delay-1">Pourquoi nos clientes<br />se sentent chez elles ici</h2>
 
-      <ul class="reassurance-list">
-        <li class="reveal reveal-delay-1">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("users")} />
-          <div>
-            <h4>Univers 100&nbsp;% féminin</h4>
-            <p>Un cabinet pensé, aménagé et pratiqué exclusivement par et pour des femmes.</p>
-          </div>
-        </li>
-        <li class="reveal reveal-delay-2">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("lock")} />
-          <div>
-            <h4>Discrétion assurée</h4>
-            <p>Chaque rendez-vous se déroule dans l'intimité, à l'abri des regards.</p>
-          </div>
-        </li>
-        <li class="reveal reveal-delay-2">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("leaf")} />
-          <div>
-            <h4>Approche naturelle</h4>
-            <p>Des techniques douces et complémentaires, respectueuses de votre corps.</p>
-          </div>
-        </li>
-        <li class="reveal reveal-delay-3">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("heart-handshake")} />
-          <div>
-            <h4>Écoute avant tout</h4>
-            <p>On prend le temps de vous accueillir, de vous comprendre, avant de vous soigner.</p>
-          </div>
-        </li>
-      </ul>
+      <div class="reassurance-grid">
+        <div class="reassurance-card reveal reveal-delay-1">
+          <span class="reassurance-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("users")} />
+          </span>
+          <h4>Univers 100&nbsp;% féminin</h4>
+          <p>Un cabinet pensé, aménagé et pratiqué exclusivement par et pour des femmes.</p>
+        </div>
+        <div class="reassurance-card reveal reveal-delay-2">
+          <span class="reassurance-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("lock")} />
+          </span>
+          <h4>Discrétion assurée</h4>
+          <p>Chaque rendez-vous se déroule dans l'intimité, à l'abri des regards.</p>
+        </div>
+        <div class="reassurance-card reveal reveal-delay-3">
+          <span class="reassurance-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("leaf")} />
+          </span>
+          <h4>Approche naturelle</h4>
+          <p>Des techniques douces et complémentaires, respectueuses de votre corps.</p>
+        </div>
+        <div class="reassurance-card reveal reveal-delay-4">
+          <span class="reassurance-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("heart-handshake")} />
+          </span>
+          <h4>Écoute avant tout</h4>
+          <p>On prend le temps de vous accueillir, de vous comprendre, avant de vous soigner.</p>
+        </div>
+      </div>
     </section>
 
     <!-- ============ PROMISE / QUOTE ============ -->
@@ -297,178 +272,11 @@ const icon = (name: string) => {
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a href="#top" class="wordmark footer-wordmark">Mouna Bouazza</a>
-        <p class="footer-tagline">Thérapeute — Médecine complémentaire, pour femmes</p>
-      </div>
-
-      <div class="footer-col">
-        <h5>Navigation</h5>
-        <a href="#espace">L'espace</a>
-        <a href="#soins">Les soins</a>
-        <a href="#experience">L'expérience</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <a href="tel:+21622959441">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("phone")} />
-          +216 22 959 441
-        </a>
-        <a href="https://wa.me/21622959441" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("message-circle")} />
-          WhatsApp
-        </a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>© 2026 Mouna Bouazza — Tous droits réservés</p>
-      <p>Site réalisé avec soin</p>
-    </div>
-  </footer>
-
-  <script>
-    const revealEls = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
-          }
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealEls.forEach((el) => io.observe(el));
-
-    const nav = document.getElementById("siteNav");
-    const onScroll = () => {
-      if (window.scrollY > 24) nav?.classList.add("scrolled");
-      else nav?.classList.remove("scrolled");
-    };
-    document.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-    navToggle?.addEventListener("click", () => {
-      navLinks?.classList.toggle("open");
-      navToggle.classList.toggle("open");
-    });
-    navLinks?.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle?.classList.remove("open");
-      })
-    );
-  </script>
+  <SiteFooter lang="fr" />
+  <ChatWidget lang="fr" />
+  <SiteScripts />
 
 <style>
-  /* ============ NAV ============ */
-  .site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding-block: 1.4rem;
-    transition: background 0.4s var(--ease-soft), padding 0.4s var(--ease-soft), box-shadow 0.4s var(--ease-soft);
-  }
-  .site-nav.scrolled {
-    background: rgba(247, 241, 230, 0.92);
-    backdrop-filter: blur(10px);
-    padding-block: 0.85rem;
-    box-shadow: 0 1px 0 rgba(53, 41, 31, 0.08);
-  }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-  .wordmark {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: var(--espresso);
-    letter-spacing: 0.01em;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2.1rem;
-  }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.92rem;
-    color: var(--espresso-soft);
-    position: relative;
-    padding-block: 0.2rem;
-  }
-  .nav-links a:not(.nav-cta)::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -2px;
-    height: 1px;
-    background: var(--terracotta);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s var(--ease-soft);
-  }
-  .nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
-  .nav-links a:not(.nav-cta):hover { color: var(--espresso); }
-  .nav-cta {
-    background: var(--terracotta);
-    color: var(--paper) !important;
-    padding: 0.6rem 1.3rem;
-    border-radius: 999px;
-    font-weight: 500;
-    transition: background 0.35s ease, transform 0.35s var(--ease-soft);
-  }
-  .nav-cta:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
-  .nav-links .lang-switch { font-size: 0.85rem; }
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--espresso);
-    width: 2.2rem; height: 2.2rem;
-    cursor: pointer;
-  }
-  .nav-toggle .icon { width: 1.6rem; height: 1.6rem; }
-
-  @media (max-width: 860px) {
-    .nav-toggle { display: flex; align-items: center; justify-content: center; }
-    .nav-links {
-      position: fixed;
-      top: 0; right: 0;
-      height: 100vh;
-      width: min(78vw, 320px);
-      background: var(--paper);
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 1.7rem;
-      padding: 2rem 2.5rem;
-      transform: translateX(100%);
-      transition: transform 0.5s var(--ease-soft);
-      box-shadow: -8px 0 30px rgba(53, 41, 31, 0.12);
-    }
-    .nav-links.open { transform: translateX(0); }
-    .nav-links a { font-size: 1.1rem; }
-    .nav-links .lang-switch { font-size: 0.85rem; }
-    .nav-cta { margin-top: 0.5rem; }
-  }
-
   /* ============ HERO ============ */
   .hero {
     display: grid;
@@ -543,7 +351,7 @@ const icon = (name: string) => {
     .hero-title { max-width: none; }
   }
 
-  /* ============ SIGNATURE ============ */
+  /* ============ SIGNATURE — fixed-background parallax ============ */
   .signature {
     position: relative;
     min-height: 62vh;
@@ -551,13 +359,10 @@ const icon = (name: string) => {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-  }
-  .signature-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-image: url('/images/salle-de-soin-ambiance-cocon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
   .signature-overlay {
     position: absolute;
@@ -576,6 +381,11 @@ const icon = (name: string) => {
     line-height: 1.5;
     max-width: 20ch;
     padding-inline: 1.5rem;
+  }
+
+  @media (max-width: 780px) {
+    /* background-attachment: fixed is unreliable on mobile browsers */
+    .signature { background-attachment: scroll; }
   }
 
   /* ============ ABOUT ============ */
@@ -655,28 +465,50 @@ const icon = (name: string) => {
     .soin-row:nth-child(4) .soin-media { aspect-ratio: 4/3; border-radius: 12px; }
   }
 
-  /* ============ REASSURANCE ============ */
+  /* ============ REASSURANCE — card grid ============ */
   .reassurance { padding-block: clamp(4rem, 9vw, 7rem); }
   .reassurance h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); font-style: italic; margin: 0.9rem 0 3rem; line-height: 1.25; }
 
-  .reassurance-list {
-    list-style: none;
-    margin: 0; padding: 0;
+  .reassurance-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
   }
-  .reassurance-list li { display: flex; gap: 1.1rem; }
-  .reassurance-list li:nth-child(2) { margin-top: 2.5rem; }
-  .reassurance-list li:nth-child(4) { margin-top: -2.5rem; }
-  .reassurance-list .icon { width: 1.7rem; height: 1.7rem; color: var(--terracotta-dark); flex-shrink: 0; margin-top: 0.2rem; }
-  .reassurance-list li:hover .icon { transform: translateY(-3px) scale(1.1); }
-  .reassurance-list h4 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
-  .reassurance-list p { color: var(--espresso-soft); font-size: 0.96rem; line-height: 1.65; max-width: 32ch; }
+  .reassurance-card {
+    background: var(--paper);
+    border-radius: 22px;
+    padding: 2rem 1.6rem;
+    box-shadow: 0 2px 14px rgba(53, 41, 31, 0.05);
+    transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
+  }
+  .reassurance-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 36px rgba(53, 41, 31, 0.12);
+  }
+  .reassurance-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--cream-deep);
+    margin-bottom: 1.3rem;
+    transition: background 0.4s var(--ease-soft), transform 0.4s var(--ease-soft);
+  }
+  .reassurance-card:hover .reassurance-icon {
+    background: var(--blush);
+    transform: scale(1.08) rotate(-6deg);
+  }
+  .reassurance-icon .icon { width: 1.5rem; height: 1.5rem; color: var(--terracotta-dark); }
+  .reassurance-card h4 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .reassurance-card p { color: var(--espresso-soft); font-size: 0.94rem; line-height: 1.65; }
 
-  @media (max-width: 720px) {
-    .reassurance-list { grid-template-columns: 1fr; gap: 2.2rem; }
-    .reassurance-list li:nth-child(2), .reassurance-list li:nth-child(4) { margin-top: 0; }
+  @media (max-width: 980px) {
+    .reassurance-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .reassurance-grid { grid-template-columns: 1fr; }
   }
 
   /* ============ PROMISE ============ */
@@ -750,29 +582,6 @@ const icon = (name: string) => {
   @media (max-width: 860px) {
     .contact-grid { grid-template-columns: 1fr; }
     .contact-arabic { border-left: none; border-top: 1px solid rgba(251, 248, 242, 0.2); padding-left: 0; padding-top: 2rem; }
-  }
-
-  /* ============ FOOTER ============ */
-  .site-footer { background: var(--sage-darker); color: rgba(251, 248, 242, 0.85); border-top: 1px solid rgba(251, 248, 242, 0.12); padding-top: clamp(3rem, 6vw, 4.5rem); }
-  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
-  .footer-wordmark { color: var(--paper); font-size: 1.7rem; }
-  .footer-tagline { margin-top: 0.7rem; color: rgba(251, 248, 242, 0.6); font-size: 0.92rem; max-width: 30ch; }
-  .footer-col { display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-col h5 { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blush); margin-bottom: 0.4rem; font-weight: 600; }
-  .footer-col a { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: rgba(251, 248, 242, 0.78); font-size: 0.95rem; }
-  .footer-col a:hover { color: var(--paper); }
-  .footer-col a:hover .icon { transform: scale(1.15); }
-  .footer-col a .icon { width: 1.05rem; height: 1.05rem; color: var(--blush); flex-shrink: 0; }
-  .footer-bottom {
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
-    padding-block: 1.4rem;
-    border-top: 1px solid rgba(251, 248, 242, 0.12);
-    font-size: 0.82rem;
-    color: rgba(251, 248, 242, 0.5);
-  }
-
-  @media (max-width: 700px) {
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
 </body>

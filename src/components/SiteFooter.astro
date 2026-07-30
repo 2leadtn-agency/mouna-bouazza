@@ -1,0 +1,107 @@
+---
+interface Props {
+  lang: "fr" | "ar";
+}
+const { lang } = Astro.props;
+const isAr = lang === "ar";
+
+const icon = (name: string) => {
+  const icons: Record<string, string> = {
+    phone: '<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>',
+    "message-circle": '<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>',
+  };
+  return icons[name] ?? "";
+};
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href={isAr ? "/ar/" : "/"} class={isAr ? "wordmark footer-wordmark wordmark-ar" : "wordmark footer-wordmark"}>
+        {isAr ? "نور المنى بوعزة" : "Mouna Bouazza"}
+      </a>
+      <p class="footer-tagline">
+        {isAr
+          ? "عناية وطب تكميلي للمرأة، في فضاء خاص يجمع بين الراحة، الخصوصية والإنصات."
+          : "Thérapeute — Médecine complémentaire, pour femmes"}
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h5>{isAr ? "روابط" : "Navigation"}</h5>
+      {isAr ? (
+        <Fragment>
+          <a href="/ar/">الرئيسية</a>
+          <a href="/ar/soins/">جلسات العناية</a>
+          <a href="/ar/experience/">تجربتكِ</a>
+          <a href="/ar/espace/">الفضاء</a>
+          <a href="/ar/#contact">تواصل معنا</a>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <a href="/espace/">L'espace</a>
+          <a href="/soins/">Les soins</a>
+          <a href="/experience/">L'expérience</a>
+          <a href="/#contact">Contact</a>
+        </Fragment>
+      )}
+    </div>
+
+    <div class="footer-col">
+      <h5>{isAr ? "تواصل" : "Contact"}</h5>
+      <a href="tel:+21622959441" dir="ltr">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("phone")} />
+        +216 22 959 441
+      </a>
+      <a href="https://wa.me/21622959441" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("message-circle")} />
+        {isAr ? "واتساب" : "WhatsApp"}
+      </a>
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>{isAr ? "© 2026 نور المنى بوعزة — جميع الحقوق محفوظة" : "© 2026 Mouna Bouazza — Tous droits réservés"}</p>
+    <p>{isAr ? "صُمّم هذا الموقع بعناية" : "Site réalisé avec soin"}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--sage-darker); color: rgba(251, 248, 242, 0.85); border-top: 1px solid rgba(251, 248, 242, 0.12); padding-top: clamp(3rem, 6vw, 4.5rem); }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+  .footer-wordmark {
+    display: inline-block;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: var(--paper);
+    font-size: 1.7rem;
+  }
+  .footer-wordmark.wordmark-ar {
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .footer-tagline { margin-top: 0.7rem; color: rgba(251, 248, 242, 0.6); font-size: 0.92rem; max-width: 32ch; line-height: 1.7; }
+  .footer-col { display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-col h5 { font-family: "Work Sans", "Tajawal", sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--blush); margin-bottom: 0.4rem; font-weight: 700; }
+  .footer-col a { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: rgba(251, 248, 242, 0.78); font-size: 0.95rem; }
+  .footer-col a:hover { color: var(--paper); }
+  .footer-col a:hover .icon { transform: scale(1.15); }
+  .footer-col a .icon { width: 1.05rem; height: 1.05rem; color: var(--blush); flex-shrink: 0; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+    padding-block: 1.4rem;
+    border-top: 1px solid rgba(251, 248, 242, 0.12);
+    font-size: 0.82rem;
+    color: rgba(251, 248, 242, 0.5);
+  }
+
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
