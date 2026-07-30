@@ -29,31 +29,32 @@ const icon = (name: string) => {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="منى بوعزة — معالِجة متخصصة في الطب التكميلي. مادِروثيرابي، مساج، تصريف لمفاوي وحجامة، في مركز خاص مخصص للنساء." />
-  <title>منى بوعزة — معالِجة، طب تكميلي</title>
+  <meta name="description" content="نور المنى بوعزة: عناية تكاملية للمرأة، تجمع بين المساج، الماديروثيرابي، التصريف اللمفاوي والحجامة، في فضاء خاص يحفظ خصوصيتكِ." />
+  <title>نور المنى بوعزة — عناية تكاملية للمرأة</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23bd6c44'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%23fbf8f2' font-family='Georgia,serif' font-style='italic'%3EM%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- ============ NAV ============ -->
   <header class="site-nav" id="siteNav">
     <div class="container nav-inner">
-      <a href="#top" class="wordmark">Mouna Bouazza</a>
+      <a href="#top" class="wordmark">نور المنى بوعزة</a>
 
       <nav class="nav-links" id="navLinks">
+        <a href="#top">الرئيسية</a>
+        <a href="#a-propos">من أنا</a>
+        <a href="#soins">جلسات العناية</a>
+        <a href="#experience">تجربتكِ</a>
         <a href="#espace">الفضاء</a>
-        <a href="#soins">العناية</a>
-        <a href="#experience">التجربة</a>
-        <a href="#contact">تواصل</a>
         <a href="/" class="lang-switch" hreflang="fr" lang="fr">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("languages")} />
           Français
         </a>
-        <a href="#contact" class="nav-cta">احجزي موعدك</a>
+        <a href="#contact" class="nav-cta">احجزي موعدكِ</a>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة">
@@ -67,15 +68,16 @@ const icon = (name: string) => {
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero-text">
-        <p class="eyebrow reveal">نور المنى بوعزة · الطب التكميلي</p>
-        <p class="hero-latin-accent reveal reveal-delay-1">Bienvenue</p>
-        <h1 class="hero-title reveal reveal-delay-1">ملاذكِ الدافئ،<br />بين نساء.</h1>
+        <p class="eyebrow reveal">نور المنى بوعزة · عناية تكاملية للمرأة</p>
+        <p class="hero-accent reveal reveal-delay-1">أهلًا بكِ</p>
+        <h1 class="hero-title reveal reveal-delay-1">مساحة لكِ وحدكِ،<br />لتعودي إلى نفسكِ.</h1>
         <p class="hero-sub reveal reveal-delay-2">
-          علاج مادِرو، المساج، التصريف اللمفاوي والحجامة — جلسات طب تكميلي
-          مصمَّمة خصيصًا للمرأة، في أجواء حميمية هادئة ومليئة بالرعاية.
+          جلسات عناية تكاملية مخصّصة للنساء، تجمع بين المساج، الماديروثيرابي،
+          التصريف اللمفاوي والحجامة، داخل فضاء هادئ يحفظ خصوصيتكِ ويمنحكِ
+          الوقت والاهتمام اللذين تستحقينهما.
         </p>
         <div class="hero-actions reveal reveal-delay-3">
-          <a href="#contact" class="btn btn-primary">احجزي موعدك</a>
+          <a href="#contact" class="btn btn-primary">احجزي لحظتكِ</a>
           <a href="#soins" class="btn-text">
             اكتشفي جلسات العناية
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("arrow-down")} />
@@ -91,9 +93,9 @@ const icon = (name: string) => {
     <section class="signature">
       <img src="/images/salle-de-soin-ambiance-cocon.jpg" alt="غرفة علاج دافئة وهادئة، طاولة تدليك وإضاءة ناعمة" class="signature-img" />
       <div class="signature-overlay"></div>
-      <p class="signature-quote reveal">
-        هنا، يتباطأ الزمن.<br />
-        يرتاح الجسد، وتتنفّس الروح.
+      <p class="signature-quote reveal">هنا، يهدأ كل شيء.</p>
+      <p class="signature-text reveal reveal-delay-1">
+        يخفّ ضجيج الخارج، يسترخي الجسد، وتجدين أخيرًا مساحة تتنفّسين فيها على مهل.
       </p>
     </section>
 
@@ -103,17 +105,20 @@ const icon = (name: string) => {
         <img src="/images/mains-bienveillantes-soin-jambe.jpg" alt="أيادٍ حانية تقدّم عناية ملفوفة بمنشفة بيضاء" />
       </div>
       <div class="about-text">
-        <p class="eyebrow reveal">معالجتكِ</p>
-        <h2 class="reveal reveal-delay-1">أيادٍ ماهرة،<br />وإنصات صادق</h2>
+        <p class="eyebrow reveal">عنايتكِ تبدأ بالإنصات إليكِ</p>
+        <h2 class="reveal reveal-delay-1">لأن كل جسد يحمل قصة مختلفة</h2>
         <p class="reveal reveal-delay-2">
-          عند منى بوعزة، تبدأ كل جلسة بحوار صادق. هنا يلتقي الإرث العريق
-          للطب التكميلي — الحجامة، المادِروثيرابي، التصريف اللمفاوي —
-          بمقاربة عصرية للعناية بالجسد، مصمَّمة خصيصًا لجسدكِ وقصتكِ.
+          لا تبدأ الجلسة بحركات محفوظة أو برنامج واحد يناسب الجميع، بل تبدأ
+          بكِ أنتِ: بما تشعرين به، بما يحتاجه جسدكِ، وبالراحة التي تبحثين عنها.
         </p>
         <p class="reveal reveal-delay-2">
-          يستقبل المركز بنفس الاهتمام النساء من الجزائر ومن كل المنطقة،
-          في فضاء صُمِّم ليكون استراحة بعيدًا عن الضجيج — لا شيء فيه سريري،
-          كل شيء فيه دافئ.
+          تقدّم نور المنى بوعزة جلسات عناية تكاملية تجمع بين الممارسات
+          التقليدية وتقنيات العناية الحديثة، ضمن مقاربة إنسانية تراعي
+          خصوصية كل امرأة وإيقاعها.
+        </p>
+        <p class="reveal reveal-delay-2">
+          هنا، لن تشعري بأنكِ رقم أو موعد عابر. ستجدين إنصاتًا حقيقيًا،
+          عناية على مهل، وفضاءً صُمّم لتشعري فيه بالأمان والطمأنينة.
         </p>
         <p class="about-signature reveal reveal-delay-3">— نور المنى بوعزة</p>
       </div>
@@ -122,20 +127,25 @@ const icon = (name: string) => {
     <!-- ============ SERVICES ============ -->
     <section class="soins" id="soins">
       <div class="container soins-head">
-        <p class="eyebrow reveal">جلسات العناية</p>
-        <h2 class="reveal reveal-delay-1">جلسة تناسب كل احتياجات جسدكِ</h2>
+        <p class="eyebrow reveal">عناية تستمع إلى جسدكِ</p>
+        <h2 class="reveal reveal-delay-1">اختاري اللحظة التي يحتاجها جسدكِ اليوم</h2>
+        <p class="section-intro reveal reveal-delay-2">
+          ليست كل الأيام متشابهة، وليست كل الأجساد بحاجة إلى العناية نفسها.
+          لذلك تُختار كل جلسة وفق احتياجاتكِ، إحساسكِ والنتيجة التي تبحثين عنها.
+        </p>
       </div>
 
       <div class="soin-row" data-side="left">
         <div class="container soin-grid">
           <div class="soin-media reveal reveal-img">
-            <img src="/images/service-madero-therapie-outils-bois.jpg" alt="أدوات خشبية تُستخدم في المادِروثيرابي" />
+            <img src="/images/service-madero-therapie-outils-bois.jpg" alt="أدوات خشبية تُستخدم في جلسة الماديروثيرابي" />
           </div>
           <div class="soin-content reveal reveal-delay-1">
             <span class="soin-num">01</span>
             <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("waves")} />
-            <h3>مادِروثيرابي <span class="soin-fr">(نحت الجسم)</span></h3>
-            <p>مساج نحتي بأسطوانات خشبية، بحركات ثابتة ولطيفة في آن. يحفّز الدورة الدموية، وينحت القوام، ويمنح البشرة مرونة أكبر مع كل جلسة.</p>
+            <h3>الماديروثيرابي ونحت القوام</h3>
+            <p>عناية تعتمد على أدوات خشبية وحركات مدروسة تستهدف مناطق محددة من الجسم، وتمنحكِ إحساسًا بالخفة والحيوية مع عناية خاصة بمظهر القوام والبشرة.</p>
+            <p>جلسة للمرأة التي ترغب في الاعتناء بجسدها، استعادة نشاطها والشعور براحة أكبر في تفاصيله.</p>
           </div>
         </div>
       </div>
@@ -145,8 +155,9 @@ const icon = (name: string) => {
           <div class="soin-content reveal reveal-delay-1">
             <span class="soin-num">02</span>
             <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("heart-handshake")} />
-            <h3>المساج</h3>
-            <p>استرخاء عميق أو تخفيف موضعي: مساج للاسترخاء أو علاجي، كل جلسة تتكيف مع جسدكِ وإيقاعكِ في تلك اللحظة، لوقتٍ حقيقي تمنحينه لنفسكِ.</p>
+            <h3>المساج والاسترخاء</h3>
+            <p>حين يحمل الجسد أكثر مما يستطيع، تصبح الراحة حاجة وليست رفاهية.</p>
+            <p>جلسات مساج استرخائية أو موجهة، تُكيّف حركاتها ووتيرتها حسب احتياجاتكِ، لمساعدتكِ على تخفيف الإحساس بالتعب واستعادة لحظة من الهدوء العميق.</p>
           </div>
           <div class="soin-media reveal reveal-img">
             <img src="/images/service-massages-mains-dos.jpg" alt="تدليك للظهر بأيادٍ خبيرة ولطيفة" />
@@ -163,7 +174,8 @@ const icon = (name: string) => {
             <span class="soin-num">03</span>
             <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("droplets")} />
             <h3>التصريف اللمفاوي</h3>
-            <p>جلسة لطيفة ومنتظمة تنشّط الدورة الدموية، تخفف ثقل الساقين، وتساعد الجسد على التخلص من السوائل بشكل طبيعي — ليتنفس جسدكِ من جديد.</p>
+            <p>جلسة تتميز بحركات لطيفة، منتظمة ومدروسة، تمنح الجسم إحساسًا بالخفة والراحة، خاصة عند الشعور بالثقل أو الانتفاخ.</p>
+            <p>عناية هادئة لا تستعجل جسدكِ، بل ترافقه بلطف وعلى إيقاعه الخاص.</p>
           </div>
         </div>
       </div>
@@ -174,7 +186,8 @@ const icon = (name: string) => {
             <span class="soin-num">04</span>
             <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("flame")} />
             <h3>الحجامة</h3>
-            <p>طريقة عريقة من الطب التكميلي، تُمارَس بلطف ودقة وخصوصية تامة، لتحرير التوترات العميقة وإعادة التوازن للجسد.</p>
+            <p>ممارسة تقليدية من ممارسات الطب التكميلي، تُقدَّم بعناية ودقة داخل أجواء هادئة تحترم راحتكِ وخصوصيتكِ.</p>
+            <p>تبدأ كل جلسة بالاستماع إليكِ وفهم احتياجاتكِ، حتى تكون التجربة أكثر اطمئنانًا وملاءمة لكِ.</p>
           </div>
           <div class="soin-media reveal reveal-img">
             <img src="/images/service-hijama-bougie-plantes.jpg" alt="شمعة وقارورة عطارة وأزهار مجففة، أجواء مهدئة" />
@@ -183,60 +196,75 @@ const icon = (name: string) => {
       </div>
     </section>
 
-    <!-- ============ REASSURANCE ============ -->
+    <!-- ============ REASSURANCE / EXPERIENCE ============ -->
     <section class="reassurance container" id="experience">
-      <p class="eyebrow reveal">التجربة</p>
-      <h2 class="reveal reveal-delay-1">لماذا تشعر عميلاتنا<br />أنهنّ في بيتهنّ هنا</h2>
+      <p class="eyebrow reveal">أكثر من مجرد جلسة عناية</p>
+      <h2 class="reveal reveal-delay-1">كل ما حولكِ يقول: أنتِ في مكانكِ</h2>
+      <p class="section-intro reveal reveal-delay-2">
+        منذ لحظة دخولكِ، ستشعرين بأن هذا الفضاء لم يُصمّم فقط لتقديم جلسة، بل
+        ليمنحكِ تجربة كاملة من الراحة، الخصوصية والاهتمام.
+      </p>
 
       <ul class="reassurance-list">
         <li class="reveal reveal-delay-1">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("users")} />
           <div>
-            <h4>فضاء نسائي بالكامل</h4>
-            <p>مركز صُمِّم وأُدير من طرف نساء، وله وحدهنّ.</p>
+            <h4>فضاء مخصّص للنساء</h4>
+            <p>مكان نسائي خالص، صُمّم لتكوني فيه مرتاحة، مطمئنة وعلى طبيعتكِ.</p>
           </div>
         </li>
         <li class="reveal reveal-delay-2">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("lock")} />
           <div>
-            <h4>خصوصية تامة</h4>
-            <p>كل موعد يجري في جوٍّ حميمي، بعيدًا عن أي نظرة.</p>
+            <h4>خصوصيتكِ أولوية</h4>
+            <p>كل جلسة تتم في أجواء خاصة وهادئة، بعيدًا عن الإزعاج ونظرات الآخرين.</p>
           </div>
         </li>
         <li class="reveal reveal-delay-2">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("leaf")} />
           <div>
-            <h4>مقاربة طبيعية</h4>
-            <p>تقنيات لطيفة ومكمّلة، تحترم جسدكِ.</p>
+            <h4>جلسة على إيقاعكِ</h4>
+            <p>لا استعجال، ولا تطبيق آلي للحركات. تُكيّف الجلسة مع حالتكِ واحتياجاتكِ في ذلك اليوم.</p>
           </div>
         </li>
         <li class="reveal reveal-delay-3">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("heart-handshake")} />
           <div>
-            <h4>الإنصات أولًا</h4>
-            <p>نأخذ الوقت الكافي لاستقبالكِ وفهمكِ، قبل البدء بأي علاج.</p>
+            <h4>الإنصات قبل العناية</h4>
+            <p>نمنحكِ الوقت لتعبّري عما تشعرين به وما تنتظرينه من الجلسة، لأن العناية الحقيقية تبدأ عندما تشعرين أنكِ مسموعة.</p>
           </div>
         </li>
       </ul>
     </section>
 
-    <!-- ============ PROMISE / QUOTE ============ -->
+    <!-- ============ PROMISE / BRAND MESSAGE ============ -->
     <section class="promise">
       <div class="container">
         <svg class="promise-quote-icon reveal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("quote")} />
-        <p class="eyebrow eyebrow-on-sage reveal">وعدنا</p>
-        <p class="promise-quote reveal reveal-delay-1">
-          « لستِ مجرد موعد آخر.<br />
-          أنتِ امرأة نأخذ الوقت لنُصغي إليها. »
+        <p class="eyebrow eyebrow-on-sage reveal">وعدنا لكِ</p>
+        <p class="promise-quote reveal reveal-delay-1">لا نراكِ موعدًا في جدول.</p>
+        <p class="promise-text reveal reveal-delay-2">
+          نراكِ امرأة اختارت أن تتوقف قليلًا، أن تُصغي إلى جسدها، وأن تمنح
+          نفسها العناية التي كثيرًا ما تؤجلها.
         </p>
-        <p class="promise-sign reveal reveal-delay-2">— منى بوعزة</p>
+        <p class="promise-text reveal reveal-delay-2">
+          هنا، وقتكِ لكِ.<br />
+          وراحتكِ تستحق كل اهتمامنا.
+        </p>
+        <p class="promise-sign reveal reveal-delay-3">— نور المنى بوعزة</p>
       </div>
     </section>
 
     <!-- ============ GALLERY / ESPACE ============ -->
     <section class="galerie container" id="espace">
-      <p class="eyebrow reveal">الفضاء</p>
-      <h2 class="reveal reveal-delay-1">مكان صُمِّم ليكون ملاذًا</h2>
+      <p class="eyebrow reveal">مساحتكِ الخاصة</p>
+      <h2 class="reveal reveal-delay-1">مكان يخفّ فيه الضجيج، وتبدأ الراحة من أول خطوة</h2>
+      <p class="section-intro reveal reveal-delay-2">
+        إضاءة دافئة، تفاصيل هادئة وأجواء نسائية حميمية صُمّمت لتشعري بالطمأنينة منذ دخولكِ.
+      </p>
+      <p class="section-intro reveal reveal-delay-2">
+        بعيدًا عن برودة العيادات وضغط الحياة اليومية، تجدين مساحة تحتضن راحتكِ وتمنحكِ لحظة حقيقية مع نفسكِ.
+      </p>
 
       <div class="galerie-grid">
         <div class="g-item g-tall reveal reveal-img">
@@ -254,41 +282,48 @@ const icon = (name: string) => {
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
+    <!-- ============ CONTACT / BOOKING ============ -->
     <section class="contact" id="contact">
       <div class="container contact-grid">
         <div class="contact-text reveal">
-          <p class="eyebrow eyebrow-on-sage">الحجز</p>
-          <h2>امنحي نفسكِ هذه اللحظة</h2>
+          <p class="eyebrow eyebrow-on-sage">موعدكِ مع نفسكِ</p>
+          <h2>هذه المرة، اختاري راحتكِ</h2>
+          <p class="contact-lead-line">
+            لا تنتظري حتى يتراكم التعب أو يصبح جسدكِ آخر ما تفكرين فيه.
+          </p>
+          <p class="contact-lead-line">
+            امنحي نفسكِ لحظة تتوقفين فيها، تتنفّسين، وتستعيدين إحساسكِ بالهدوء والخفة.
+          </p>
           <p class="contact-lead">
-            بالموعد المسبق فقط، من الأحد إلى الخميس. راسلينا أو اتصلي —
-            نأخذ الوقت للرد عليكِ.
+            نستقبلكِ بالموعد المسبق من الأحد إلى الخميس. يمكنكِ التواصل معنا
+            عبر الهاتف أو واتساب لاختيار الجلسة والموعد الأنسب لكِ.
           </p>
 
           <ul class="contact-list">
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("phone")} />
+              <span class="contact-label">رقم الهاتف</span>
               <a href="tel:+21622959441" dir="ltr">+216 22 959 441</a>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("map-pin")} />
-              <span>مركز خاص — يتم تزويدكِ بالعنوان عند تأكيد الموعد</span>
+              <span class="contact-label">الموقع</span>
+              <span>العنوان الكامل يُرسل بعد تأكيد الموعد</span>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("clock")} />
-              <span>من الأحد إلى الخميس، بالموعد المسبق</span>
+              <span>الاستقبال من الأحد إلى الخميس، بالموعد المسبق</span>
             </li>
           </ul>
 
           <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="btn btn-on-dark">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("message-circle")} />
-            احجزي عبر واتساب
+            احجزي موعدكِ عبر واتساب
           </a>
         </div>
 
-        <div class="contact-latin-accent reveal reveal-delay-1">
-          <p>Avec soin</p>
-          <span>— بكل رعاية —</span>
+        <div class="contact-accent reveal reveal-delay-1">
+          <p>بكل عناية،<br />لأنكِ تستحقينها.</p>
         </div>
       </div>
     </section>
@@ -299,16 +334,17 @@ const icon = (name: string) => {
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a href="#top" class="wordmark footer-wordmark">Mouna Bouazza</a>
-        <p class="footer-tagline">معالِجة — طب تكميلي، للمرأة</p>
+        <a href="#top" class="wordmark footer-wordmark">نور المنى بوعزة</a>
+        <p class="footer-tagline">عناية وطب تكميلي للمرأة، في فضاء خاص يجمع بين الراحة، الخصوصية والإنصات.</p>
       </div>
 
       <div class="footer-col">
         <h5>روابط</h5>
+        <a href="#top">الرئيسية</a>
+        <a href="#soins">جلسات العناية</a>
+        <a href="#experience">تجربتكِ</a>
         <a href="#espace">الفضاء</a>
-        <a href="#soins">العناية</a>
-        <a href="#experience">التجربة</a>
-        <a href="#contact">تواصل</a>
+        <a href="#contact">تواصل معنا</a>
       </div>
 
       <div class="footer-col">
@@ -326,8 +362,8 @@ const icon = (name: string) => {
     </div>
 
     <div class="container footer-bottom">
-      <p>© 2026 منى بوعزة — جميع الحقوق محفوظة</p>
-      <p>صُمِّم هذا الموقع بعناية</p>
+      <p>© 2026 نور المنى بوعزة — جميع الحقوق محفوظة</p>
+      <p>صُمّم هذا الموقع بعناية</p>
     </div>
   </footer>
 
@@ -373,6 +409,13 @@ const icon = (name: string) => {
   body { font-family: "Tajawal", "Segoe UI", sans-serif; }
   h1, h2, h3, h4 { font-family: "Amiri", serif; font-weight: 700; }
 
+  .section-intro {
+    color: var(--espresso-soft);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    max-width: 56ch;
+  }
+
   /* ============ NAV ============ */
   .site-nav {
     position: fixed;
@@ -393,28 +436,29 @@ const icon = (name: string) => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .wordmark {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-family: "Aref Ruqaa", serif;
+    font-weight: 700;
+    font-size: 1.3rem;
     text-decoration: none;
     color: var(--espresso);
     letter-spacing: 0.01em;
+    white-space: nowrap;
   }
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2.1rem;
+    gap: 1.5rem;
   }
   .nav-links a {
     text-decoration: none;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--espresso-soft);
     position: relative;
     padding-block: 0.2rem;
+    white-space: nowrap;
   }
   .nav-links a:not(.nav-cta)::after {
     content: "";
@@ -431,13 +475,13 @@ const icon = (name: string) => {
   .nav-cta {
     background: var(--terracotta);
     color: var(--paper) !important;
-    padding: 0.6rem 1.3rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 999px;
     font-weight: 500;
     transition: background 0.35s ease, transform 0.35s var(--ease-soft);
   }
   .nav-cta:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
-  .nav-links .lang-switch { font-size: 0.85rem; }
+  .nav-links .lang-switch { font-size: 0.82rem; }
   .nav-toggle {
     display: none;
     background: none;
@@ -448,7 +492,7 @@ const icon = (name: string) => {
   }
   .nav-toggle .icon { width: 1.6rem; height: 1.6rem; }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1080px) {
     .nav-toggle { display: flex; align-items: center; justify-content: center; }
     .nav-links {
       position: fixed;
@@ -459,14 +503,14 @@ const icon = (name: string) => {
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      gap: 1.7rem;
+      gap: 1.5rem;
       padding: 2rem 2.5rem;
       transform: translateX(-100%);
       transition: transform 0.5s var(--ease-soft);
       box-shadow: 8px 0 30px rgba(53, 41, 31, 0.12);
     }
     .nav-links.open { transform: translateX(0); }
-    .nav-links a { font-size: 1.1rem; }
+    .nav-links a { font-size: 1.05rem; }
     .nav-links .lang-switch { font-size: 0.85rem; }
     .nav-cta { margin-top: 0.5rem; }
   }
@@ -487,24 +531,24 @@ const icon = (name: string) => {
     flex-direction: column;
     gap: 1.1rem;
   }
-  .hero-latin-accent {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-size: 1.6rem;
+  .hero-accent {
+    font-family: "Aref Ruqaa", serif;
+    font-weight: 700;
+    font-size: 1.7rem;
     color: var(--terracotta);
   }
   .hero-title {
     font-size: clamp(2.6rem, 5.2vw, 4.4rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     color: var(--espresso);
-    max-width: 14ch;
+    max-width: 15ch;
   }
   .hero-sub {
     font-size: 1.08rem;
     color: var(--espresso-soft);
     max-width: 42ch;
-    line-height: 1.8;
+    line-height: 1.85;
   }
   .hero-actions {
     display: flex;
@@ -550,8 +594,10 @@ const icon = (name: string) => {
     position: relative;
     min-height: 62vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     overflow: hidden;
   }
   .signature-img {
@@ -573,9 +619,21 @@ const icon = (name: string) => {
     font-weight: 700;
     color: var(--paper);
     text-align: center;
-    font-size: clamp(1.6rem, 3.4vw, 2.7rem);
-    line-height: 1.6;
+    font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+    line-height: 1.5;
     max-width: 20ch;
+    padding-inline: 1.5rem;
+  }
+  .signature-text {
+    position: relative;
+    z-index: 1;
+    font-family: "Tajawal", sans-serif;
+    font-weight: 400;
+    color: rgba(251, 248, 242, 0.88);
+    text-align: center;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.8;
+    max-width: 34ch;
     padding-inline: 1.5rem;
   }
 
@@ -597,9 +655,9 @@ const icon = (name: string) => {
   .about-text h2 { font-size: clamp(2rem, 3.4vw, 2.7rem); line-height: 1.3; }
   .about-text p { color: var(--espresso-soft); font-size: 1.02rem; line-height: 1.85; }
   .about-signature {
-    font-family: "Amiri", serif;
+    font-family: "Aref Ruqaa", serif;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     color: var(--terracotta-dark);
     margin-top: 0.4rem;
   }
@@ -611,7 +669,7 @@ const icon = (name: string) => {
 
   /* ============ SOINS ============ */
   .soins { padding-block: clamp(3rem, 8vw, 6rem) 2rem; }
-  .soins-head { max-width: 50ch; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); display: flex; flex-direction: column; gap: 1rem; }
+  .soins-head { max-width: 58ch; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); display: flex; flex-direction: column; gap: 1rem; }
   .soins-head h2 { font-size: clamp(2rem, 3.4vw, 2.6rem); line-height: 1.3; }
 
   .soin-row { padding-block: clamp(2.5rem, 6vw, 4rem); }
@@ -645,8 +703,8 @@ const icon = (name: string) => {
   .soin-icon { width: 1.9rem; height: 1.9rem; color: var(--sage); margin-bottom: 0.9rem; }
   .soin-content:hover .soin-icon { transform: translateY(-3px) scale(1.1); }
   .soin-content h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); margin-bottom: 0.7rem; }
-  .soin-fr { font-size: 0.6em; color: var(--espresso-faint); font-family: "Tajawal", sans-serif; font-weight: 400; }
   .soin-content p { color: var(--espresso-soft); max-width: 44ch; line-height: 1.85; }
+  .soin-content p + p { margin-top: 0.9rem; }
 
   @media (max-width: 780px) {
     .soin-grid { grid-template-columns: 1fr; }
@@ -658,7 +716,8 @@ const icon = (name: string) => {
 
   /* ============ REASSURANCE ============ */
   .reassurance { padding-block: clamp(4rem, 9vw, 7rem); }
-  .reassurance h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); margin: 0.9rem 0 3rem; line-height: 1.35; }
+  .reassurance h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); margin: 0.9rem 0 1.2rem; line-height: 1.35; }
+  .reassurance .section-intro { margin-bottom: 2.8rem; }
 
   .reassurance-list {
     list-style: none;
@@ -699,16 +758,26 @@ const icon = (name: string) => {
   .promise-quote {
     font-family: "Amiri", serif;
     font-weight: 700;
-    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
-    line-height: 1.6;
+    font-size: clamp(1.7rem, 3.6vw, 2.7rem);
+    line-height: 1.5;
     margin: 1.6rem auto 0;
     max-width: 22ch;
   }
-  .promise-sign { margin-top: 1.5rem; color: var(--blush); font-family: "Amiri", serif; font-weight: 700; }
+  .promise-text {
+    font-family: "Tajawal", sans-serif;
+    color: rgba(251, 248, 242, 0.82);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    max-width: 40ch;
+    margin: 1.2rem auto 0;
+  }
+  .promise-sign { margin-top: 1.7rem; color: var(--blush); font-family: "Aref Ruqaa", serif; font-weight: 700; font-size: 1.2rem; }
 
   /* ============ GALERIE ============ */
   .galerie { padding-block: clamp(4.5rem, 10vw, 7.5rem); }
-  .galerie h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); margin: 0.9rem 0 3rem; }
+  .galerie h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); margin: 0.9rem 0 1.2rem; }
+  .galerie .section-intro { margin-bottom: 0.7rem; }
+  .galerie .section-intro:last-of-type { margin-bottom: 2.8rem; }
 
   .galerie-grid {
     display: grid;
@@ -732,31 +801,32 @@ const icon = (name: string) => {
   .contact { background: var(--sage-darker); color: var(--paper); padding-block: clamp(4.5rem, 10vw, 7.5rem); }
   .contact-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: center; }
   .contact-text h2 { color: var(--paper); font-size: clamp(2rem, 3.6vw, 2.8rem); margin: 0.8rem 0 1.3rem; line-height: 1.35; }
+  .contact-lead-line { color: rgba(251, 248, 242, 0.75); max-width: 46ch; line-height: 1.8; margin-bottom: 0.9rem; }
   .contact-lead { color: rgba(251, 248, 242, 0.75); max-width: 46ch; line-height: 1.8; margin-bottom: 2rem; }
   .contact-list { list-style: none; margin: 0 0 2.2rem; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
-  .contact-list li { display: flex; align-items: center; gap: 0.9rem; color: rgba(251, 248, 242, 0.88); }
+  .contact-list li { display: flex; align-items: center; gap: 0.7rem; color: rgba(251, 248, 242, 0.88); flex-wrap: wrap; }
   .contact-list .icon { width: 1.3rem; height: 1.3rem; color: var(--blush); flex-shrink: 0; }
   .contact-list a { text-decoration: none; }
   .contact-list a:hover { color: var(--blush); }
+  .contact-label { font-weight: 700; color: var(--blush); }
 
-  .contact-latin-accent {
+  .contact-accent {
     text-align: center;
     border-right: 1px solid rgba(251, 248, 242, 0.2);
     padding-right: 2rem;
   }
-  .contact-latin-accent p { font-family: "Fraunces", serif; font-style: italic; font-size: 2.2rem; color: var(--blush); margin-bottom: 0.5rem; }
-  .contact-latin-accent span { font-size: 0.85rem; letter-spacing: 0.02em; color: rgba(251, 248, 242, 0.6); }
+  .contact-accent p { font-family: "Aref Ruqaa", serif; font-weight: 700; font-size: 1.9rem; line-height: 1.5; color: var(--blush); }
 
   @media (max-width: 860px) {
     .contact-grid { grid-template-columns: 1fr; }
-    .contact-latin-accent { border-right: none; border-top: 1px solid rgba(251, 248, 242, 0.2); padding-right: 0; padding-top: 2rem; }
+    .contact-accent { border-right: none; border-top: 1px solid rgba(251, 248, 242, 0.2); padding-right: 0; padding-top: 2rem; }
   }
 
   /* ============ FOOTER ============ */
   .site-footer { background: var(--sage-darker); color: rgba(251, 248, 242, 0.85); border-top: 1px solid rgba(251, 248, 242, 0.12); padding-top: clamp(3rem, 6vw, 4.5rem); }
   .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
-  .footer-wordmark { color: var(--paper); font-size: 1.7rem; }
-  .footer-tagline { margin-top: 0.7rem; color: rgba(251, 248, 242, 0.6); font-size: 0.92rem; max-width: 30ch; }
+  .footer-wordmark { color: var(--paper); font-size: 1.5rem; }
+  .footer-tagline { margin-top: 0.7rem; color: rgba(251, 248, 242, 0.6); font-size: 0.92rem; max-width: 32ch; line-height: 1.7; }
   .footer-col { display: flex; flex-direction: column; gap: 0.8rem; }
   .footer-col h5 { font-family: "Tajawal", sans-serif; font-size: 0.78rem; letter-spacing: 0.04em; color: var(--blush); margin-bottom: 0.4rem; font-weight: 700; }
   .footer-col a { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: rgba(251, 248, 242, 0.78); font-size: 0.95rem; }
