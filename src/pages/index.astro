@@ -1,12 +1,753 @@
 ---
+import "../styles/global.css";
+
+const icon = (name: string) => {
+  const icons: Record<string, string> = {
+    leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/>',
+    lock: '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+    "heart-handshake": '<path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"/>',
+    phone: '<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>',
+    mail: '<path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/>',
+    "map-pin": '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    "message-circle": '<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>',
+    menu: '<path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/>',
+    x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    "arrow-down": '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>',
+    "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+    droplets: '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
+    waves: '<path d="M2 12q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0"/><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0"/>',
+    flame: '<path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/>',
+  };
+  return icons[name] ?? "";
+};
 ---
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apercu</title>
+  <meta name="description" content="Mouna Bouazza — Thérapeute spécialiste en médecine complémentaire. Madero-thérapie, massages, drainage lymphatique et hijama, dans un cabinet privé pensé pour les femmes." />
+  <title>Mouna Bouazza — Thérapeute, médecine complémentaire</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23bd6c44'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%23fbf8f2' font-family='Georgia,serif' font-style='italic'%3EM%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <h1>Apercu en cours de construction</h1>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a href="#top" class="wordmark">Mouna Bouazza</a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#espace">L'espace</a>
+        <a href="#soins">Les soins</a>
+        <a href="#experience">L'expérience</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Prendre rendez-vous</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+        <svg class="icon" id="navToggleIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("menu")} />
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow reveal">Noure el Mouna Bouazza · Médecine complémentaire</p>
+        <p class="hero-arabic reveal reveal-delay-1">أهلاً بكِ</p>
+        <h1 class="hero-title reveal reveal-delay-1">Un cocon pour vous,<br />entre femmes.</h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Madero-thérapie, massages, drainage lymphatique et hijama — des soins de
+          médecine complémentaire pensés pour les femmes, dans un cadre intime,
+          calme et bienveillant.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+          <a href="#soins" class="btn-text">
+            Découvrir les soins
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("arrow-down")} />
+          </a>
+        </div>
+      </div>
+      <div class="hero-image reveal">
+        <img src="/images/hero-massage-pierres-chaudes-bougies.jpg" alt="Soin aux pierres chaudes à la lueur des bougies, dans une ambiance feutrée" />
+      </div>
+    </section>
+
+    <!-- ============ SIGNATURE FULL-BLEED MOMENT ============ -->
+    <section class="signature">
+      <img src="/images/salle-de-soin-ambiance-cocon.jpg" alt="Salle de soin chaleureuse et feutrée, table de massage et lumière douce" class="signature-img" />
+      <div class="signature-overlay"></div>
+      <p class="signature-quote reveal">
+        Ici, le temps ralentit.<br />
+        Le corps se dépose. L'esprit respire.
+      </p>
+    </section>
+
+    <!-- ============ ABOUT / PHILOSOPHY ============ -->
+    <section class="about container" id="a-propos">
+      <div class="about-image reveal">
+        <img src="/images/mains-bienveillantes-soin-jambe.jpg" alt="Mains bienveillantes prodiguant un soin enveloppé de linge blanc" />
+      </div>
+      <div class="about-text">
+        <p class="eyebrow reveal">Votre thérapeute</p>
+        <h2 class="reveal reveal-delay-1">Des mains formées,<br />une écoute sincère</h2>
+        <p class="reveal reveal-delay-2">
+          Chez Mouna Bouazza, chaque soin commence par une vraie conversation.
+          Ici, on marie les gestes ancestraux de la médecine complémentaire —
+          hijama, madero-thérapie, drainage — à une approche moderne du bien-être,
+          sur-mesure, adaptée à votre corps et à votre histoire.
+        </p>
+        <p class="reveal reveal-delay-2">
+          Le cabinet accueille avec la même attention les femmes d'Algérie et
+          de toute la région, dans un espace pensé comme une pause loin du bruit —
+          jamais clinique, toujours chaleureux.
+        </p>
+        <p class="about-signature reveal reveal-delay-3">— Noure el Mouna Bouazza</p>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="soins" id="soins">
+      <div class="container soins-head">
+        <p class="eyebrow reveal">Les soins</p>
+        <h2 class="reveal reveal-delay-1">Un soin pour chaque besoin du corps</h2>
+      </div>
+
+      <div class="soin-row" data-side="left">
+        <div class="container soin-grid">
+          <div class="soin-media reveal">
+            <img src="/images/service-madero-therapie-outils-bois.jpg" alt="Outils en bois utilisés pour la madero-thérapie" />
+          </div>
+          <div class="soin-content reveal reveal-delay-1">
+            <span class="soin-num">01</span>
+            <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("waves")} />
+            <h3>Madero-thérapie <span class="soin-fr">(amincissement)</span></h3>
+            <p>Un massage sculptant aux rouleaux de bois, aux gestes fermes et enveloppants. Il stimule la circulation, affine la silhouette et redonne fermeté à la peau, séance après séance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="soin-row" data-side="right">
+        <div class="container soin-grid">
+          <div class="soin-content reveal reveal-delay-1">
+            <span class="soin-num">02</span>
+            <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("heart-handshake")} />
+            <h3>Massages</h3>
+            <p>Détente profonde ou soulagement ciblé : relaxants ou thérapeutiques, chaque massage s'adapte à votre corps et à votre rythme du moment, pour un vrai instant à soi.</p>
+          </div>
+          <div class="soin-media reveal">
+            <img src="/images/service-massages-mains-dos.jpg" alt="Massage du dos aux mains expertes et douces" />
+          </div>
+        </div>
+      </div>
+
+      <div class="soin-row" data-side="left">
+        <div class="container soin-grid">
+          <div class="soin-media reveal">
+            <img src="/images/service-drainage-lymphatique-pied.jpg" alt="Drainage lymphatique délicat, mains posées sur le pied" />
+          </div>
+          <div class="soin-content reveal reveal-delay-1">
+            <span class="soin-num">03</span>
+            <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("droplets")} />
+            <h3>Drainage lymphatique</h3>
+            <p>Un soin doux et rythmé qui relance la circulation, allège les jambes et accompagne naturellement l'élimination — pour un corps qui respire à nouveau.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="soin-row" data-side="right">
+        <div class="container soin-grid">
+          <div class="soin-content reveal reveal-delay-1">
+            <span class="soin-num">04</span>
+            <svg class="icon soin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("flame")} />
+            <h3>Hijama <span class="soin-fr">(ventouses)</span></h3>
+            <p>Une méthode ancestrale de médecine complémentaire, pratiquée avec douceur, précision et discrétion, pour libérer les tensions profondes et rééquilibrer le corps.</p>
+          </div>
+          <div class="soin-media reveal">
+            <img src="/images/service-hijama-bougie-plantes.jpg" alt="Bougie, flacon d'apothicaire et fleurs séchées, ambiance apaisante" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REASSURANCE ============ -->
+    <section class="reassurance container" id="experience">
+      <p class="eyebrow reveal">L'expérience</p>
+      <h2 class="reveal reveal-delay-1">Pourquoi nos clientes<br />se sentent chez elles ici</h2>
+
+      <ul class="reassurance-list">
+        <li class="reveal reveal-delay-1">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("users")} />
+          <div>
+            <h4>Univers 100&nbsp;% féminin</h4>
+            <p>Un cabinet pensé, aménagé et pratiqué exclusivement par et pour des femmes.</p>
+          </div>
+        </li>
+        <li class="reveal reveal-delay-2">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("lock")} />
+          <div>
+            <h4>Discrétion assurée</h4>
+            <p>Chaque rendez-vous se déroule dans l'intimité, à l'abri des regards.</p>
+          </div>
+        </li>
+        <li class="reveal reveal-delay-2">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("leaf")} />
+          <div>
+            <h4>Approche naturelle</h4>
+            <p>Des techniques douces et complémentaires, respectueuses de votre corps.</p>
+          </div>
+        </li>
+        <li class="reveal reveal-delay-3">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("heart-handshake")} />
+          <div>
+            <h4>Écoute avant tout</h4>
+            <p>On prend le temps de vous accueillir, de vous comprendre, avant de vous soigner.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ PROMISE / QUOTE ============ -->
+    <section class="promise">
+      <div class="container">
+        <p class="eyebrow eyebrow-on-sage reveal">Notre promesse</p>
+        <p class="promise-quote reveal reveal-delay-1">
+          « Vous n'êtes pas un rendez-vous de plus.<br />
+          Vous êtes une femme qu'on prend le temps d'écouter. »
+        </p>
+        <p class="promise-sign reveal reveal-delay-2">— Mouna Bouazza</p>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY / ESPACE ============ -->
+    <section class="galerie container" id="espace">
+      <p class="eyebrow reveal">L'espace</p>
+      <h2 class="reveal reveal-delay-1">Un lieu pensé comme un refuge</h2>
+
+      <div class="galerie-grid">
+        <div class="g-item g-tall reveal">
+          <img src="/images/ambiance-bassin-pieds-fleurs.jpg" alt="Bassin pour les pieds orné de fleurs, rituel de bien-être" />
+        </div>
+        <div class="g-item g-wide reveal reveal-delay-1">
+          <img src="/images/ambiance-cabine-soin-boheme.jpg" alt="Cabine de soin à l'ambiance chaleureuse et végétale" />
+        </div>
+        <div class="g-item reveal reveal-delay-1">
+          <img src="/images/ambiance-pierres-chaudes-etagere.jpg" alt="Pierres chaudes disposées sur le dos, ambiance douce" />
+        </div>
+        <div class="g-item reveal reveal-delay-2">
+          <img src="/images/ambiance-etagere-huiles-bois.jpg" alt="Étagère en bois et huiles essentielles, coin apothicaire" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-text reveal">
+          <p class="eyebrow eyebrow-on-sage">Réservation</p>
+          <h2>Offrez-vous ce moment</h2>
+          <p class="contact-lead">
+            Sur rendez-vous uniquement, du dimanche au jeudi. Écrivez-nous ou
+            appelez — nous prenons le temps de vous répondre.
+          </p>
+
+          <ul class="contact-list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("phone")} />
+              <a href="tel:+21622959441">+216 22 959 441</a>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("map-pin")} />
+              <span>Cabinet privé — adresse communiquée à la confirmation du rendez-vous</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("clock")} />
+              <span>Dimanche – Jeudi, sur rendez-vous</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="btn btn-on-dark">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("message-circle")} />
+            Réserver via WhatsApp
+          </a>
+        </div>
+
+        <div class="contact-arabic reveal reveal-delay-1">
+          <p>بكل رعاية</p>
+          <span>— avec soin —</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="wordmark footer-wordmark">Mouna Bouazza</a>
+        <p class="footer-tagline">Thérapeute — Médecine complémentaire, pour femmes</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="#espace">L'espace</a>
+        <a href="#soins">Les soins</a>
+        <a href="#experience">L'expérience</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:+21622959441">+216 22 959 441</a>
+        <a href="https://wa.me/21622959441" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Mouna Bouazza — Tous droits réservés</p>
+      <p>Site réalisé avec soin</p>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    revealEls.forEach((el) => io.observe(el));
+
+    const nav = document.getElementById("siteNav");
+    const onScroll = () => {
+      if (window.scrollY > 24) nav?.classList.add("scrolled");
+      else nav?.classList.remove("scrolled");
+    };
+    document.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => {
+      navLinks?.classList.toggle("open");
+      navToggle.classList.toggle("open");
+    });
+    navLinks?.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        navToggle?.classList.remove("open");
+      })
+    );
+  </script>
+
+<style>
+  /* ============ NAV ============ */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding-block: 1.4rem;
+    transition: background 0.4s var(--ease-soft), padding 0.4s var(--ease-soft), box-shadow 0.4s var(--ease-soft);
+  }
+  .site-nav.scrolled {
+    background: rgba(247, 241, 230, 0.92);
+    backdrop-filter: blur(10px);
+    padding-block: 0.85rem;
+    box-shadow: 0 1px 0 rgba(53, 41, 31, 0.08);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--espresso);
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.1rem;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: var(--espresso-soft);
+    position: relative;
+    padding-block: 0.2rem;
+  }
+  .nav-links a:not(.nav-cta)::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 1px;
+    background: var(--terracotta);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s var(--ease-soft);
+  }
+  .nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
+  .nav-links a:not(.nav-cta):hover { color: var(--espresso); }
+  .nav-cta {
+    background: var(--terracotta);
+    color: var(--paper) !important;
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: background 0.35s ease, transform 0.35s var(--ease-soft);
+  }
+  .nav-cta:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--espresso);
+    width: 2.2rem; height: 2.2rem;
+    cursor: pointer;
+  }
+  .nav-toggle .icon { width: 1.6rem; height: 1.6rem; }
+
+  @media (max-width: 860px) {
+    .nav-toggle { display: flex; align-items: center; justify-content: center; }
+    .nav-links {
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: min(78vw, 320px);
+      background: var(--paper);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1.7rem;
+      padding: 2rem 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.5s var(--ease-soft);
+      box-shadow: -8px 0 30px rgba(53, 41, 31, 0.12);
+    }
+    .nav-links.open { transform: translateX(0); }
+    .nav-links a { font-size: 1.1rem; }
+    .nav-cta { margin-top: 0.5rem; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) 1.35fr;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 5rem;
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+  .hero-text {
+    padding-left: clamp(1.25rem, 6vw, 5rem);
+    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .hero-arabic {
+    font-family: var(--font-arabic);
+    font-size: 1.6rem;
+    color: var(--terracotta);
+  }
+  .hero-title {
+    font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.08;
+    color: var(--espresso);
+    max-width: 12ch;
+  }
+  .hero-sub {
+    font-size: 1.08rem;
+    color: var(--espresso-soft);
+    max-width: 42ch;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    margin-top: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--espresso);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(53, 41, 31, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease, gap 0.3s ease;
+  }
+  .btn-text:hover { border-color: var(--espresso); gap: 0.7rem; }
+  .hero-image {
+    height: 100vh;
+    align-self: stretch;
+    overflow: hidden;
+    border-radius: 0 0 0 140px;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 7rem; }
+    .hero-text { padding-inline: 1.5rem; order: 1; }
+    .hero-image { height: 60vh; order: 2; border-radius: 0 0 0 70px; }
+    .hero-title { max-width: none; }
+  }
+
+  /* ============ SIGNATURE ============ */
+  .signature {
+    position: relative;
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .signature-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .signature-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(38, 47, 33, 0.35) 0%, rgba(38, 47, 33, 0.55) 100%);
+  }
+  .signature-quote {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--paper);
+    text-align: center;
+    font-size: clamp(1.6rem, 3.4vw, 2.7rem);
+    line-height: 1.5;
+    max-width: 20ch;
+    padding-inline: 1.5rem;
+  }
+
+  /* ============ ABOUT ============ */
+  .about {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding-block: clamp(5rem, 10vw, 8rem);
+  }
+  .about-image {
+    border-radius: 220px 220px 24px 24px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; }
+  .about-text { display: flex; flex-direction: column; gap: 1.3rem; max-width: 44ch; }
+  .about-text h2 { font-size: clamp(2rem, 3.4vw, 2.7rem); font-style: italic; line-height: 1.18; }
+  .about-text p { color: var(--espresso-soft); font-size: 1.02rem; line-height: 1.75; }
+  .about-signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--terracotta-dark);
+    margin-top: 0.4rem;
+  }
+
+  @media (max-width: 860px) {
+    .about { grid-template-columns: 1fr; }
+    .about-image { aspect-ratio: 4 / 3; border-radius: 140px 24px 24px 24px; }
+  }
+
+  /* ============ SOINS ============ */
+  .soins { padding-block: clamp(3rem, 8vw, 6rem) 2rem; }
+  .soins-head { max-width: 50ch; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); display: flex; flex-direction: column; gap: 1rem; }
+  .soins-head h2 { font-size: clamp(2rem, 3.4vw, 2.6rem); font-style: italic; line-height: 1.2; }
+
+  .soin-row { padding-block: clamp(2.5rem, 6vw, 4rem); }
+  .soin-row:nth-child(odd) { background: var(--cream-deep); }
+
+  .soin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .soin-media { order: 1; }
+  .soin-content { order: 2; }
+  .soin-row[data-side="right"] .soin-media { order: 2; }
+  .soin-row[data-side="right"] .soin-content { order: 1; }
+
+  .soin-media { border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; }
+  .soin-row:nth-child(2) .soin-media,
+  .soin-row:nth-child(4) .soin-media { aspect-ratio: 1 / 1; border-radius: 50% / 40%; }
+  .soin-media img { width: 100%; height: 100%; object-fit: cover; }
+
+  .soin-content { position: relative; padding-left: 0.2rem; }
+  .soin-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .soin-icon { width: 1.9rem; height: 1.9rem; color: var(--sage); margin-bottom: 0.9rem; }
+  .soin-content h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); font-style: italic; margin-bottom: 0.7rem; }
+  .soin-fr { font-style: normal; font-size: 0.62em; color: var(--espresso-faint); font-family: var(--font-body); letter-spacing: 0.01em; }
+  .soin-content p { color: var(--espresso-soft); max-width: 44ch; line-height: 1.75; }
+
+  @media (max-width: 780px) {
+    .soin-grid { grid-template-columns: 1fr; }
+    .soin-media, .soin-row[data-side="right"] .soin-media { order: 1; }
+    .soin-content, .soin-row[data-side="right"] .soin-content { order: 2; }
+    .soin-row:nth-child(2) .soin-media,
+    .soin-row:nth-child(4) .soin-media { aspect-ratio: 4/3; border-radius: 12px; }
+  }
+
+  /* ============ REASSURANCE ============ */
+  .reassurance { padding-block: clamp(4rem, 9vw, 7rem); }
+  .reassurance h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); font-style: italic; margin: 0.9rem 0 3rem; line-height: 1.25; }
+
+  .reassurance-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 3rem;
+  }
+  .reassurance-list li { display: flex; gap: 1.1rem; }
+  .reassurance-list li:nth-child(2) { margin-top: 2.5rem; }
+  .reassurance-list li:nth-child(4) { margin-top: -2.5rem; }
+  .reassurance-list .icon { width: 1.7rem; height: 1.7rem; color: var(--terracotta-dark); flex-shrink: 0; margin-top: 0.2rem; }
+  .reassurance-list h4 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .reassurance-list p { color: var(--espresso-soft); font-size: 0.96rem; line-height: 1.65; max-width: 32ch; }
+
+  @media (max-width: 720px) {
+    .reassurance-list { grid-template-columns: 1fr; gap: 2.2rem; }
+    .reassurance-list li:nth-child(2), .reassurance-list li:nth-child(4) { margin-top: 0; }
+  }
+
+  /* ============ PROMISE ============ */
+  .promise {
+    background: var(--sage-deep);
+    color: var(--paper);
+    padding-block: clamp(4.5rem, 10vw, 7.5rem);
+    text-align: center;
+  }
+  .eyebrow-on-sage { color: var(--blush); }
+  .eyebrow-on-sage::before { background: var(--blush); }
+  .promise-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    line-height: 1.5;
+    margin: 1.6rem auto 0;
+    max-width: 22ch;
+  }
+  .promise-sign { margin-top: 1.5rem; color: var(--blush); font-family: var(--font-display); font-style: italic; }
+
+  /* ============ GALERIE ============ */
+  .galerie { padding-block: clamp(4.5rem, 10vw, 7.5rem); }
+  .galerie h2 { font-size: clamp(1.9rem, 3.2vw, 2.4rem); font-style: italic; margin: 0.9rem 0 3rem; }
+
+  .galerie-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 1.1rem;
+  }
+  .g-item { overflow: hidden; border-radius: 10px; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-soft); }
+  .g-item:hover img { transform: scale(1.06); }
+  .g-tall { grid-row: 1 / 3; }
+  .g-wide { grid-column: 2 / 3; grid-row: 1 / 3; border-radius: 220px 10px 10px 10px; }
+
+  @media (max-width: 780px) {
+    .galerie-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 170px 170px 170px; }
+    .g-tall { grid-row: auto; grid-column: auto; }
+    .g-wide { grid-row: auto; grid-column: auto; border-radius: 10px; }
+  }
+
+  /* ============ CONTACT ============ */
+  .contact { background: var(--sage-darker); color: var(--paper); padding-block: clamp(4.5rem, 10vw, 7.5rem); }
+  .contact-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: center; }
+  .contact-text h2 { color: var(--paper); font-size: clamp(2rem, 3.6vw, 2.8rem); font-style: italic; margin: 0.8rem 0 1.3rem; }
+  .contact-lead { color: rgba(251, 248, 242, 0.75); max-width: 46ch; line-height: 1.7; margin-bottom: 2rem; }
+  .contact-list { list-style: none; margin: 0 0 2.2rem; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .contact-list li { display: flex; align-items: center; gap: 0.9rem; color: rgba(251, 248, 242, 0.88); }
+  .contact-list .icon { width: 1.3rem; height: 1.3rem; color: var(--blush); flex-shrink: 0; }
+  .contact-list a { text-decoration: none; }
+  .contact-list a:hover { color: var(--blush); }
+
+  .contact-arabic {
+    text-align: center;
+    border-left: 1px solid rgba(251, 248, 242, 0.2);
+    padding-left: 2rem;
+  }
+  .contact-arabic p { font-family: var(--font-arabic); font-size: 2.6rem; color: var(--blush); margin-bottom: 0.5rem; }
+  .contact-arabic span { font-size: 0.85rem; letter-spacing: 0.1em; color: rgba(251, 248, 242, 0.6); text-transform: uppercase; }
+
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-arabic { border-left: none; border-top: 1px solid rgba(251, 248, 242, 0.2); padding-left: 0; padding-top: 2rem; }
+  }
+
+  /* ============ FOOTER ============ */
+  .site-footer { background: var(--sage-darker); color: rgba(251, 248, 242, 0.85); border-top: 1px solid rgba(251, 248, 242, 0.12); padding-top: clamp(3rem, 6vw, 4.5rem); }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+  .footer-wordmark { color: var(--paper); font-size: 1.7rem; }
+  .footer-tagline { margin-top: 0.7rem; color: rgba(251, 248, 242, 0.6); font-size: 0.92rem; max-width: 30ch; }
+  .footer-col { display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-col h5 { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blush); margin-bottom: 0.4rem; font-weight: 600; }
+  .footer-col a { text-decoration: none; color: rgba(251, 248, 242, 0.78); font-size: 0.95rem; }
+  .footer-col a:hover { color: var(--paper); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+    padding-block: 1.4rem;
+    border-top: 1px solid rgba(251, 248, 242, 0.12);
+    font-size: 0.82rem;
+    color: rgba(251, 248, 242, 0.5);
+  }
+
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
 </body>
 </html>
