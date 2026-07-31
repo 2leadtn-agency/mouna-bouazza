@@ -99,6 +99,15 @@ p {
   opacity: 0.6;
 }
 
+/* Draws the eyebrow's leading dash in once its paragraph reveals */
+.eyebrow.reveal::before {
+  width: 0;
+  transition: width 0.7s var(--ease-soft) 0.15s;
+}
+.eyebrow.reveal.in-view::before {
+  width: 1.6em;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -118,11 +127,30 @@ p {
 .btn-primary {
   background: var(--terracotta);
   color: var(--paper);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
 }
 
 .btn-primary:hover {
   background: var(--terracotta-dark);
   transform: translateY(-2px);
+}
+
+.btn-primary:hover::after {
+  left: 130%;
 }
 
 .btn-ghost {
@@ -208,13 +236,25 @@ p {
   transform: rotate(-14deg);
 }
 
+/* Slow one-time settle used on hero photography */
+@keyframes kenburns {
+  from { transform: scale(1.09); }
+  to { transform: scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal.in-view {
     opacity: 1;
     transform: none;
     transition: none;
   }
+  .eyebrow.reveal::before { width: 1.6em; transition: none; }
+  .btn-primary::after { display: none; }
   html {
     scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

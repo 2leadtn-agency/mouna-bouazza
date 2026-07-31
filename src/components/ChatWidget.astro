@@ -9,10 +9,19 @@ const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter
 ---
 
 <div class="chat-widget">
-  <span class="chat-bubble reveal">{label}</span>
-  <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="chat-fab reveal" aria-label={ariaLabel}>
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>
+  <span class="chat-bubble">{label}</span>
+  <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="chat-fab" aria-label={ariaLabel}>
+    <span class="chat-fab-ring"></span>
+    <!-- custom mark: a speech bubble carrying a small sparkle — the site's "ask us" signature -->
+    <svg class="chat-fab-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+        stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+      />
+      <path
+        d="M17 4.2 17.55 5.85 19.2 6.4 17.55 6.95 17 8.6 16.45 6.95 14.8 6.4 16.45 5.85Z"
+        fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round"
+      />
     </svg>
   </a>
 </div>
@@ -20,12 +29,16 @@ const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter
 <style>
   .chat-widget {
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    z-index: 90;
+    bottom: calc(1.6rem + env(safe-area-inset-bottom, 0px));
+    right: calc(1.6rem + env(safe-area-inset-right, 0px));
+    z-index: 120;
     display: flex;
     align-items: center;
     gap: 0.7rem;
+    pointer-events: none;
+  }
+  .chat-widget > * {
+    pointer-events: auto;
   }
   .chat-bubble {
     background: var(--paper);
@@ -37,53 +50,64 @@ const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter
     border-radius: 999px;
     box-shadow: 0 8px 22px rgba(53, 41, 31, 0.16);
     white-space: nowrap;
-    transform: translateX(0) translateY(0);
+    opacity: 0;
+    animation: chat-in 0.6s var(--ease-soft) 1.1s forwards;
   }
   .chat-fab {
-    width: 3.4rem;
-    height: 3.4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     flex-shrink: 0;
     border-radius: 50%;
-    background: var(--terracotta);
+    opacity: 0;
+    animation: chat-in 0.6s var(--ease-soft) 0.9s forwards, chat-bob 3.6s ease-in-out 1.6s infinite;
+    background: linear-gradient(155deg, var(--terracotta), var(--terracotta-dark));
     color: var(--paper);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 26px rgba(189, 108, 68, 0.4);
+    box-shadow: 0 10px 26px rgba(189, 108, 68, 0.42);
     position: relative;
     text-decoration: none;
-    transition: transform 0.4s var(--ease-soft), background 0.35s ease;
+    transition: transform 0.4s var(--ease-soft), box-shadow 0.4s var(--ease-soft);
   }
   .chat-fab:hover {
-    transform: translateY(-3px) scale(1.06);
-    background: var(--terracotta-dark);
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 16px 34px rgba(189, 108, 68, 0.5);
+    animation-play-state: paused;
   }
-  .chat-fab .icon {
-    width: 1.6rem;
-    height: 1.6rem;
-    stroke-width: 1.8;
+  .chat-fab-icon {
+    width: 1.7rem;
+    height: 1.7rem;
   }
-  .chat-fab::after {
-    content: "";
+  .chat-fab-ring {
     position: absolute;
     inset: 0;
     border-radius: 50%;
     border: 2px solid var(--terracotta);
     animation: chat-pulse 2.8s ease-out infinite;
+    pointer-events: none;
   }
   @keyframes chat-pulse {
     0% { transform: scale(1); opacity: 0.55; }
     100% { transform: scale(1.65); opacity: 0; }
   }
+  @keyframes chat-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes chat-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
 
   @media (max-width: 600px) {
-    .chat-widget { bottom: 1.1rem; right: 1.1rem; gap: 0.5rem; }
+    .chat-widget { bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px)); right: calc(1.15rem + env(safe-area-inset-right, 0px)); gap: 0.5rem; }
     .chat-bubble { font-size: 0.76rem; padding: 0.48rem 0.85rem; }
-    .chat-fab { width: 3rem; height: 3rem; }
-    .chat-fab .icon { width: 1.4rem; height: 1.4rem; }
+    .chat-fab { width: 3.1rem; height: 3.1rem; }
+    .chat-fab-icon { width: 1.45rem; height: 1.45rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .chat-fab::after { animation: none; }
+    .chat-fab, .chat-fab-ring { animation: none; }
   }
 </style>
