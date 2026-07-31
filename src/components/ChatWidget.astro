@@ -5,25 +5,38 @@ interface Props {
 const { lang } = Astro.props;
 const isAr = lang === "ar";
 const label = isAr ? "لديكِ سؤال؟" : "Une question ?";
-const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter avec nous sur WhatsApp";
+const chatAriaLabel = isAr ? "تواصلي معنا" : "Discuter avec nous";
+const waAriaLabel = isAr ? "راسلينا على واتساب" : "Nous écrire sur WhatsApp";
 ---
 
 <div class="chat-widget">
-  <span class="chat-bubble">{label}</span>
-  <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="chat-fab" aria-label={ariaLabel}>
-    <span class="chat-fab-ring"></span>
-    <!-- custom mark: a speech bubble carrying a small sparkle — the site's "ask us" signature -->
+  <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="chat-fab chat-fab-wa" aria-label={waAriaLabel}>
+    <!-- recognizable WhatsApp-style mark: brand green + handset glyph -->
     <svg class="chat-fab-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-        stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-      />
-      <path
-        d="M17 4.2 17.55 5.85 19.2 6.4 17.55 6.95 17 8.6 16.45 6.95 14.8 6.4 16.45 5.85Z"
-        fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round"
+        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+        fill="currentColor" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"
       />
     </svg>
   </a>
+
+  <div class="chat-row">
+    <span class="chat-bubble">{label}</span>
+    <a href="https://wa.me/21622959441" target="_blank" rel="noopener" class="chat-fab chat-fab-ask" aria-label={chatAriaLabel}>
+      <span class="chat-fab-ring"></span>
+      <!-- custom mark: a speech bubble carrying a small sparkle — the site's "ask us" signature -->
+      <svg class="chat-fab-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+        />
+        <path
+          d="M17 4.2 17.55 5.85 19.2 6.4 17.55 6.95 17 8.6 16.45 6.95 14.8 6.4 16.45 5.85Z"
+          fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+  </div>
 </div>
 
 <style>
@@ -33,12 +46,20 @@ const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter
     right: calc(1.6rem + env(safe-area-inset-right, 0px));
     z-index: 120;
     display: flex;
-    align-items: center;
-    gap: 0.7rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.85rem;
     pointer-events: none;
+    /* keep icon-right / label-left order consistent on the Arabic (RTL) page too */
+    direction: ltr;
   }
   .chat-widget > * {
     pointer-events: auto;
+  }
+  .chat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
   }
   .chat-bubble {
     background: var(--paper);
@@ -59,25 +80,42 @@ const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter
     flex-shrink: 0;
     border-radius: 50%;
     opacity: 0;
-    animation: chat-in 0.6s var(--ease-soft) 0.9s forwards, chat-bob 3.6s ease-in-out 1.6s infinite;
-    background: linear-gradient(155deg, var(--terracotta), var(--terracotta-dark));
     color: var(--paper);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 26px rgba(189, 108, 68, 0.42);
     position: relative;
     text-decoration: none;
     transition: transform 0.4s var(--ease-soft), box-shadow 0.4s var(--ease-soft);
   }
-  .chat-fab:hover {
+  .chat-fab-ask {
+    background: linear-gradient(155deg, var(--terracotta), var(--terracotta-dark));
+    box-shadow: 0 10px 26px rgba(189, 108, 68, 0.42);
+    animation: chat-in 0.6s var(--ease-soft) 0.9s forwards, chat-bob 3.6s ease-in-out 1.6s infinite;
+  }
+  .chat-fab-ask:hover {
     transform: translateY(-4px) scale(1.06);
     box-shadow: 0 16px 34px rgba(189, 108, 68, 0.5);
     animation-play-state: paused;
   }
+  .chat-fab-wa {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(155deg, #2fd66b, #22b358);
+    box-shadow: 0 10px 24px rgba(34, 179, 88, 0.4);
+    animation: chat-in 0.6s var(--ease-soft) 0.7s forwards;
+  }
+  .chat-fab-wa:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 16px 30px rgba(34, 179, 88, 0.48);
+  }
   .chat-fab-icon {
     width: 1.7rem;
     height: 1.7rem;
+  }
+  .chat-fab-wa .chat-fab-icon {
+    width: 1.4rem;
+    height: 1.4rem;
   }
   .chat-fab-ring {
     position: absolute;
@@ -101,14 +139,21 @@ const ariaLabel = isAr ? "تواصلي معنا عبر واتساب" : "Discuter
   }
 
   @media (max-width: 600px) {
-    .chat-widget { bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px)); right: calc(1.15rem + env(safe-area-inset-right, 0px)); gap: 0.5rem; }
+    .chat-widget {
+      bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
+      right: calc(1.15rem + env(safe-area-inset-right, 0px));
+      gap: 0.65rem;
+    }
+    .chat-row { gap: 0.5rem; }
     .chat-bubble { font-size: 0.76rem; padding: 0.48rem 0.85rem; }
-    .chat-fab { width: 3.1rem; height: 3.1rem; }
-    .chat-fab-icon { width: 1.45rem; height: 1.45rem; }
+    .chat-fab-ask { width: 3.1rem; height: 3.1rem; }
+    .chat-fab-ask .chat-fab-icon { width: 1.45rem; height: 1.45rem; }
+    .chat-fab-wa { width: 2.7rem; height: 2.7rem; }
+    .chat-fab-wa .chat-fab-icon { width: 1.25rem; height: 1.25rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .chat-fab, .chat-bubble { animation: none; opacity: 1; }
+    .chat-fab-ask, .chat-fab-wa, .chat-bubble { animation: none; opacity: 1; }
     .chat-fab-ring { animation: none; opacity: 0; }
   }
 </style>

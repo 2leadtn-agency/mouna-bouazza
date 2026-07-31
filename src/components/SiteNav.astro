@@ -48,6 +48,16 @@ const icon = (name: string) => {
       <a href={contactHref} class="nav-cta">{isAr ? "احجزي موعدكِ" : "Prendre rendez-vous"}</a>
     </nav>
 
+    <a
+      href={switchHref}
+      class="quick-lang"
+      hreflang={isAr ? "fr" : "ar"}
+      lang={isAr ? "fr" : "ar"}
+      aria-label={isAr ? "التبديل إلى النسخة الفرنسية" : "Passer à la version arabe"}
+    >
+      {isAr ? "FR" : "AR"}
+    </a>
+
     <button class="nav-toggle" id="navToggle" aria-label={isAr ? "فتح القائمة" : "Ouvrir le menu"}>
       <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={icon("menu")} />
     </button>
@@ -146,7 +156,32 @@ const icon = (name: string) => {
   }
   .nav-toggle .icon { width: 1.6rem; height: 1.6rem; }
 
+  /* Compact language toggle — quick access without opening the full menu */
+  .quick-lang {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    border-radius: 50%;
+    border: 1px solid rgba(53, 41, 31, 0.22);
+    font-family: "Work Sans", "Tajawal", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--espresso-soft);
+    flex-shrink: 0;
+    transition: border-color 0.35s ease, color 0.35s ease, transform 0.35s var(--ease-soft);
+  }
+  .quick-lang:hover {
+    border-color: var(--terracotta);
+    color: var(--espresso);
+    transform: translateY(-1px);
+  }
+
   @media (max-width: 1080px) {
+    .quick-lang { display: flex; }
     .nav-toggle { display: flex; align-items: center; justify-content: center; }
     .nav-links {
       position: fixed;
